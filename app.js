@@ -12,6 +12,15 @@ let passwordAuthor = document.querySelector('.password_author');
 const submit = document.querySelector('.submit');
 const submitAuthor = document.querySelector('.submit_author');
 
+const createAcc = document.querySelector('.option.create_acc');
+const haveAcc = document.querySelector('.option.have_acc');
+
+const inputLogin = document.querySelector('.input.login');
+const inputAuthor = document.querySelector('.input.author');
+
+const welcome = document.querySelector('.input.welcome');
+const welcomeUser = document.querySelector('.tittle.welcome');
+
 let data;
 !localStorage.data ? data = [] : data = JSON.parse(localStorage.getItem('data'));
 
@@ -48,6 +57,7 @@ submit.addEventListener('click', () => {
     data.push(new User(login.value, password.value, email.value));
     saveData();
     showUsers();
+    haveAccount();
     //login.value = '';
     //password.value = '';
     //email.value = '';
@@ -59,9 +69,14 @@ const checkIn = () => {
     loginAuthor.value != '' && passwordAuthor.value != '' ?
         data.forEach((user) => { 
             loginAuthor.value == user.log && passwordAuthor.value == user.pass ?
-            (result.innerHTML = 'Welcome!', loginAuthor.value = '', passwordAuthor.value = '', user.idex--)
-            : data.indexOf(user) +1;
-        }, result.innerHTML = 'incorrect data!')
+            (welcome.style.display = 'block', 
+            welcomeUser.innerHTML = `Welcome, ${user.log}!`, 
+            inputLogin.style.display = 'none', 
+            inputAuthor.style.display = 'none'/*, user.idex--*/)
+            : (data.indexOf(user) +1,
+            welcome.style.display = 'none')
+        }, result.innerHTML = 'incorrect data!', 
+        welcome.style.display = 'none')
     
     : result.innerHTML = 'enter data!';
       
@@ -69,4 +84,28 @@ const checkIn = () => {
 
 submitAuthor.addEventListener('click', () => {
     checkIn();
+    
+    
+    
+})
+
+
+const createAccount = () => {
+    inputLogin.style.display = 'block';
+    inputAuthor.style.display = 'none';
+
+}
+
+createAcc.addEventListener('click', () => {
+    createAccount();
+});
+
+
+const haveAccount = () => {
+    inputLogin.style.display = 'none';
+    inputAuthor.style.display = 'block';
+}
+
+haveAcc.addEventListener('click', () => {
+    haveAccount();
 })
