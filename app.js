@@ -6,10 +6,11 @@ let result = document.querySelector('.result');
 
 let users = document.querySelector('.users');
 
-
+let loginAuthor = document.querySelector('.login_author');
+let passwordAuthor = document.querySelector('.password_author');
 
 const submit = document.querySelector('.submit');
-
+const submitAuthor = document.querySelector('.submit_author');
 
 let data;
 !localStorage.data ? data = [] : data = JSON.parse(localStorage.getItem('data'));
@@ -54,3 +55,18 @@ submit.addEventListener('click', () => {
 
 
 
+const checkIn = () => {
+    loginAuthor.value != '' && passwordAuthor.value != '' ?
+        data.forEach((user) => { 
+            loginAuthor.value == user.log && passwordAuthor.value == user.pass ?
+            (result.innerHTML = 'Welcome!', loginAuthor.value = '', passwordAuthor.value = '', user.idex--)
+            : data.indexOf(user) +1;
+        }, result.innerHTML = 'incorrect data!')
+    
+    : result.innerHTML = 'enter data!';
+      
+};
+
+submitAuthor.addEventListener('click', () => {
+    checkIn();
+})
