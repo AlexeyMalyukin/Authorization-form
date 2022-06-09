@@ -189,8 +189,16 @@ body {
         width: 90%;
     }
 
+    .input_item {
+        width: 75%;
+    }
+
+    .btn {
+        width: 75%;
+    }
+
     .option {
-        font-size: 15px;
+        font-size: 18px;
     }
 }
 
