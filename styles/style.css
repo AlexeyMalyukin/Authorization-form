@@ -87,7 +87,7 @@ body {
 
 
 .input_item {
-    margin: 65px auto;
+    margin: 65px auto 0;
     width: 60%;
     border-bottom: 1px solid grey;
     
@@ -121,8 +121,12 @@ body {
 
 
 .notification,
-.result {
-    margin-top: 10px;
+.result, 
+.login_note,
+.password_note,
+.email_note {
+    width: 60%;
+    margin: 10px auto 50px;
     text-align: center;
     font-size: 15px;
     color: red;
@@ -197,6 +201,14 @@ body {
     }
 
     .input_item {
+        width: 75%;
+    }
+
+    .notification,
+    .result, 
+    .login_note,
+    .password_note,
+    .email_note {
         width: 75%;
     }
 
