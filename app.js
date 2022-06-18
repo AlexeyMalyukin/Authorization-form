@@ -95,7 +95,7 @@ showUsers();
 
 
 const checkIn = () => {
-    loginAuthor.value != '' && passwordAuthor.value != '' ?
+    basicReqepx.test(loginAuthor.value) && basicReqepx.test(passwordAuthor.value) ?
         data.forEach((user) => { 
             loginAuthor.value == user.log && passwordAuthor.value == user.pass ?
             (welcome.style.display = 'block', 
@@ -103,10 +103,10 @@ const checkIn = () => {
             inputLogin.style.display = 'none', 
             inputAuthor.style.display = 'none')
             : data.indexOf(user) +1
-        }, result.innerHTML = 'incorrect data!', 
+        }, result.innerHTML = 'Can not find user with such login and password, please enter again!', 
         welcome.style.display = 'none')
     
-    : result.innerHTML = 'Your login or password is incorrect, please try again!';
+    : result.innerHTML = 'The format of data is incorrect, please enter again!';
       
 };
 
