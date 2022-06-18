@@ -44,7 +44,7 @@ const passwordNote = document.querySelector('.password_note');
 const emailNote = document.querySelector('.email_note');
 //const alertLogin = document.createElement('p');
 
-const emailReqepx = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+const emailReqepx = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
 const basicReqepx = new RegExp(/^\S{4,}$/)
 
 submit.addEventListener('click', () => {
@@ -60,21 +60,21 @@ submit.addEventListener('click', () => {
         if(basicReqepx.test(login.value)) {
             loginNote.innerHTML = "";
         } else {
-            loginNote.innerHTML = 'Your login should constsit at least 4 symbols'; 
+            loginNote.innerHTML = 'Your login should consist at least 4 symbols'; 
             
         }
 
         if(basicReqepx.test(password.value)) {
             passwordNote.innerHTML = "";
         } else {
-            passwordNote.innerHTML = 'Your password should constsit at least 4 symbols';   
+            passwordNote.innerHTML = 'Your password should consist at least 4 symbols';   
         }
 
         
         if(emailReqepx.test(email.value)) {
             emailNote.innerHTML = "";
         } else {
-                emailNote.innerHTML = "Email is not valid, try format: example@mail.com"; 
+            emailNote.innerHTML = "Email is not valid, try format: example@mail.com"; 
         }
     }
 })
